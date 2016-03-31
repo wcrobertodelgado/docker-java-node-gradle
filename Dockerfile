@@ -1,7 +1,10 @@
 FROM ubuntu:15.10
 
 RUN apt-get update
-RUN apt-get -y install openjdk-8-jre-headless wget unzip xz-utils
+RUN apt-get -y install openjdk-8-jdk wget unzip xz-utils
+
+# Setup certificates in openjdk-8
+RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 # Set path
 ENV PATH ${PATH}:/usr/local/gradle-2.12/bin:/usr/local/node-v5.9.1-linux-x64/bin
