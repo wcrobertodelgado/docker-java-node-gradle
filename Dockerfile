@@ -1,7 +1,7 @@
 FROM ubuntu:15.10
 
 RUN apt-get update
-RUN apt-get -y install openjdk-8-jdk wget unzip xz-utils
+RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils
 
 # Setup certificates in openjdk-8
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
