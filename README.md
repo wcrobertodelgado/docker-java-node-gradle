@@ -1,7 +1,8 @@
 # ubuntu-java-node-gradle
-Docker image based on Ubuntu 15.10. Added OpenJDK-8, Node and Gradle
+Docker image based on Ubuntu 16.04.
 
 # Versions
 - OpenJDK-8-JDK
-- Node 5.9.1
-- Gradle 2.12
+- Node 6.2.2
+- Gradle 2.14
+- Python 2.7.11
