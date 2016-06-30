@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update
-RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python
+RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essential
 
 # Setup certificates in openjdk-8
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
