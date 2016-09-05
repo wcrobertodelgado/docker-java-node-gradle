@@ -22,6 +22,6 @@ RUN wget https://services.gradle.org/distributions/gradle-3.0-bin.zip && \
 
 # Add common Spring dependencies
 ADD build.gradle /usr/local/gradle-3.0/
-RUN gradle -b /usr/local/gradle-3.0/build.gradle build
+RUN gradle -b /usr/local/gradle-3.0/build.gradle clean
 
 WORKDIR /app
