@@ -7,17 +7,21 @@ RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essen
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 # Set path
-ENV PATH ${PATH}:/usr/local/gradle-2.14/bin:/usr/local/node-v6.2.2-linux-x64/bin
+ENV PATH ${PATH}:/usr/local/gradle-3.0/bin:/usr/local/node-v6.5.0-linux-x64/bin
 
 # Install nodejs
 WORKDIR /usr/local
-RUN wget https://nodejs.org/dist/v6.2.2/node-v6.2.2-linux-x64.tar.xz && \
-  tar xf node-v6.2.2-linux-x64.tar.xz && \
-  rm -f node-v6.2.2-linux-x64.tar.xz
+RUN wget https://nodejs.org/dist/v6.5.0/node-v6.5.0-linux-x64.tar.xz && \
+  tar xf node-v6.5.0-linux-x64.tar.xz && \
+  rm -f node-v6.5.0-linux-x64.tar.xz
 
 # Install gradle
-RUN wget https://services.gradle.org/distributions/gradle-2.14-bin.zip && \
-    unzip gradle-2.14-bin.zip && \
-    rm -f gradle-2.14-bin.zip
+RUN wget https://services.gradle.org/distributions/gradle-3.0-bin.zip && \
+    unzip gradle-3.0-bin.zip && \
+    rm -f gradle-3.0-bin.zip
+
+# Add common Spring dependencies
+ADD build.gradle /usr/local/gradle-3.0/
+RUN gradle -b /usr/local/gradle-3.0/build.gradle build
 
 WORKDIR /app
