@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:16.10
 
 RUN apt-get update
 RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essential
@@ -7,7 +7,11 @@ RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essen
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 # Set path
-ENV PATH ${PATH}:/usr/local/gradle-3.0/bin:/usr/local/node-v6.5.0-linux-x64/bin
+ENV PATH ${PATH}:/usr/local/gradle-3.0/bin:/usr/local/node-v6.5.0-linux-x64/bin:/cf-cli
+
+# Install cloud foundry cli
+WORKDIR /cf-cli
+RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github" | tar -zx
 
 # Install nodejs
 WORKDIR /usr/local
