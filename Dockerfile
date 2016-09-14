@@ -24,12 +24,4 @@ RUN wget https://services.gradle.org/distributions/gradle-3.0-bin.zip && \
     unzip gradle-3.0-bin.zip && \
     rm -f gradle-3.0-bin.zip
 
-# Add common Spring dependencies
-WORKDIR /usr/local/maven/
-ADD mvn-wrapper ./
-ADD pom.xml ./
-RUN ./mvnw install
-
 WORKDIR /app
-RUN rm -rf /usr/local/maven/
-RUN rm -rf ~/.m2/wrapper
