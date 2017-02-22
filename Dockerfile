@@ -1,4 +1,8 @@
 FROM ubuntu:16.10
+MAINTAINER FINTProsjektet (www.fintprosjektet.no)
+
+ENV NODE_VERSION 7.5.0
+ENV GRADLE_VERSION 3.3
 
 RUN apt-get update
 RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essential
@@ -7,17 +11,17 @@ RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essen
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 # Set path
-ENV PATH ${PATH}:/usr/local/gradle-3.0/bin:/usr/local/node-v6.5.0-linux-x64/bin
+ENV PATH ${PATH}:/usr/local/gradle-$GRADLE_VERSION/bin:/usr/local/node-v$NODE_VERSION-linux-x64/bin
 
 # Install nodejs
 WORKDIR /usr/local
-RUN wget https://nodejs.org/dist/v6.5.0/node-v6.5.0-linux-x64.tar.xz && \
-  tar xf node-v6.5.0-linux-x64.tar.xz && \
-  rm -f node-v6.5.0-linux-x64.tar.xz
+RUN wget https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz && \
+  tar xf node-v$NODE_VERSION-linux-x64.tar.xz && \
+  rm -f node-v$NODE_VERSION-linux-x64.tar.xz
 
 # Install gradle
-RUN wget https://services.gradle.org/distributions/gradle-3.0-bin.zip && \
-    unzip gradle-3.0-bin.zip && \
-    rm -f gradle-3.0-bin.zip
+RUN wget https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
+    unzip gradle-$GRADLE_VERSION-bin.zip && \
+    rm -f gradle-$GRADLE_VERSION-bin.zip
 
 WORKDIR /app
