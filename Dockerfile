@@ -1,7 +1,7 @@
 FROM ubuntu:16.10
 MAINTAINER FINTProsjektet (www.fintprosjektet.no)
 
-ENV NODE_VERSION 7.5.0
+ENV NODE_VERSION 7.8.0
 ENV GRADLE_VERSION 3.3
 
 RUN apt-get update
