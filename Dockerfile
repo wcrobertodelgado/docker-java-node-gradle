@@ -11,13 +11,11 @@ RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essen
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 # Set path
-ENV PATH ${PATH}:/usr/local/gradle-$GRADLE_VERSION/bin:/usr/local/node-v$NODE_VERSION-linux-x64/bin
+ENV PATH ${PATH}:/usr/local/gradle-$GRADLE_VERSION/bin
 
 # Install nodejs
-WORKDIR /usr/local
-RUN wget https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz && \
-  tar xf node-v$NODE_VERSION-linux-x64.tar.xz && \
-  rm -f node-v$NODE_VERSION-linux-x64.tar.xz
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    apt-get install -y nodejs
 
 # Install gradle
 RUN wget https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
