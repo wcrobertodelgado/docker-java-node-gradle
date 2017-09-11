@@ -1,8 +1,8 @@
 FROM ubuntu:16.10
-MAINTAINER FINTProsjektet (www.fintprosjektet.no)
+MAINTAINER Karl J. Overå
 
-ENV NODE_VERSION 7.8.0
-ENV GRADLE_VERSION 3.3
+ENV NODE_VERSION 8.4.0
+ENV GRADLE_VERSION 4.1
 
 RUN apt-get update
 RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essential
