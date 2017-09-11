@@ -1,8 +1,7 @@
 # ubuntu-java-node-gradle
-Docker image based on Ubuntu 16.10 to use as a build container for Gradle based Spring Boot/Angular projects.
+Docker image based on Ubuntu 16.10 with Java, Gradle and node.
 
 # Versions
 - OpenJDK-8-JDK
-- Node 7.8.0
-- Gradle 3.3
-- Python 2.7.11
+- Node 8.2.0
+- Gradle 4.1
