@@ -1,8 +1,8 @@
-FROM ubuntu:16.10
+FROM ubuntu:18.04
 MAINTAINER Karl J. Overå
 
-ENV NODE_VERSION 8.4.0
-ENV GRADLE_VERSION 4.1
+ENV NODE_VERSION 8.12.0
+ENV GRADLE_VERSION 4.10.2
 
 RUN apt-get update
 RUN apt-get -y install openjdk-8-jdk wget curl unzip xz-utils python build-essential ssh git
